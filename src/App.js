@@ -34,8 +34,8 @@ function App() {
   ///////////////////////////////////////////////////////////////////////
   const [idActual, setIdActual] = useState("");
 
-  const fnDelete = () => {
-    console.log("Se elimino...");
+  const fnDelete = (xId) => {
+    console.log("Se elimino..."+ xId);
   };
 
   return (
@@ -44,7 +44,14 @@ function App() {
       <h3>READ / DELETE</h3>
       <AppForm {...{idActual, setIdActual, fnRead}} />
       {
-        docsBD.map((p) => <p key={p.id}> {p.nombre} </p> )
+        docsBD.map((row) =>
+        <p key={row.id}>
+          {row.nombre}...
+          <span onClick={() => fnDelete(row.id)}> x </span>
+          ...
+          <span onClick={() => setIdActual(row.id)}> A </span>
+        </p>
+        )
       }      
     </div>
   );

@@ -27,7 +27,7 @@ const AppForm = (props) => {
                     console.log("NO se guardo...");
                 }
             }else{
-                console.log("ACTUALIZAR REGISTRO...");
+                console.log("ACTUALIZAR REGISTRO..."+props.idActual);
             }
             
         } catch (error) {
